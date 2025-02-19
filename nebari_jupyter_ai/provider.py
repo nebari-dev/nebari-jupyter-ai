@@ -2,12 +2,20 @@ from typing import ClassVar, List
 
 from jupyter_ai import AuthStrategy, BaseProvider, Field
 from jupyter_ai_magics.partner_providers.openai import ChatOpenAIProvider
+from jupyter_ai_magics.models.persona import Persona
+
 
 from .llm import TestLLM
+
+# JUPYTERNAUT_AVATAR_ROUTE = "api/ai/static/jupyternaut.svg"
+NEBARI_ASSISTANT_AVATAR_ROUTE = "nebari-jupyter-ai/static/nebari-logo-with-bg.svg"
 
 class TestProvider(ChatOpenAIProvider):
     id = "nebari-provider"
     name = "Nebari Provider"
+    
+    persona = Persona(name="Nebari Assistant", avatar_route=NEBARI_ASSISTANT_AVATAR_ROUTE)
+
 
 
 # class TestProvider(BaseProvider, TestLLM):
