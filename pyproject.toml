@@ -25,7 +25,7 @@ description = "A Jupyter AI extension."
 authors = [
     { name = "Quansight" },
 ]
-dependencies = ["jupyter_ai==2.29.0", "pydantic==2.7", "jupyter_server==2.15.0"]
+dependencies = ["jupyter_ai", "langchain-openai"] # ==2.29.0", "pydantic==2.7", "jupyter_server==2.15.0"]
 
 [project.optional-dependencies]
 test = ["coverage", "pytest", "pytest-asyncio", "pytest-cov"]
@@ -45,6 +45,10 @@ nebari_jupyter_ai = "nebari_jupyter_ai:_jupyter_server_extension_points"
 
 [tool.hatch.build.hooks.version]
 path = "nebari_jupyter_ai/_version.py"
+
+# auto install extension
+[tool.hatch.build.targets.wheel.shared-data]
+"jupyter-config/server-config" = "etc/jupyter/jupyter_server_config.d"
 
 [tool.check-wheel-contents]
 ignore = ["W002"]
