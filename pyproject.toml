@@ -20,21 +20,25 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
 ]
-version = "0.1.0"
+version = "2.29.0"
 description = "A Jupyter AI extension."
 authors = [
     { name = "Quansight" },
 ]
-dependencies = ["jupyter_ai"]
+dependencies = ["jupyter_ai==2.29.0", "pydantic==2.7", "jupyter_server==2.15.0"]
 
 [project.optional-dependencies]
 test = ["coverage", "pytest", "pytest-asyncio", "pytest-cov"]
 
 [project.entry-points."jupyter_ai.model_providers"]
-test-provider = "nebari_jupyter_ai.provider:TestProvider"
+nebari-chat = "nebari_jupyter_ai.provider:NebariChatProvider"
 
-[project.entry-points."jupyter_ai.chat_handlers"]
-test-slash-command = "nebari_jupyter_ai.slash_command:TestSlashCommand"
+[project.entry-points."jupyter_ai.embeddings_model_providers"]
+# my-provider = "my_provider:MyEmbeddingsProvider"
+nebari-embeddings = "nebari_jupyter_ai.provider:NebariEmbeddingsProvider"
+
+# [project.entry-points."jupyter_ai.chat_handlers"]
+# test-slash-command = "nebari_jupyter_ai.slash_command:TestSlashCommand"
 
 [project.entry-points."jupyter_server_extensions"]
 nebari_jupyter_ai = "nebari_jupyter_ai:_jupyter_server_extension_points"
