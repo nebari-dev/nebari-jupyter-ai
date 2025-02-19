@@ -52,8 +52,3 @@ path = "nebari_jupyter_ai/_version.py"
 
 [tool.check-wheel-contents]
 ignore = ["W002"]
-
-# conda create -n jai2 "python==3.11.11"
-# conda activate jai2
-# pip install -e .
-# jupyter server extension list
