@@ -6,7 +6,7 @@ def setup_handlers(web_app):
     base_path = os.path.dirname(__file__)
     
     handlers = [(
-        r"/nebari-jupyter-ai/static/(.*)", 
+        r"nebari-jupyter-ai/static/(.*)", 
         StaticFileHandler, 
         {"path": os.path.join(base_path, "static")}
     )]
