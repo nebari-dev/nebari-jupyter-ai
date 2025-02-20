@@ -11,9 +11,6 @@ def setup_handlers(web_app):
         
     # Get the base_url from the web_app  settings
     base_url = web_app.settings.get('base_url', '/')
-    print('=' * 80)
-    print(f"base_url: {base_url}")
-    print('=' * 80)
 
     handlers = [(
         rf"{url_path_join(base_url, NEBARI_ASSISTANT_PERSONA.avatar_route)}()", # the `()` at the end of the URL denotes an empty regex capture group
