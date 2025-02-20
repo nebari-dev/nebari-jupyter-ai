@@ -40,9 +40,6 @@ nebari-embeddings = "nebari_jupyter_ai.provider:NebariEmbeddingsProvider"
 # [project.entry-points."jupyter_ai.chat_handlers"]
 # test-slash-command = "nebari_jupyter_ai.slash_command:TestSlashCommand"
 
-[project.entry-points."jupyter_server_extensions"]
-nebari_jupyter_ai = "nebari_jupyter_ai:_jupyter_server_extension_points"
-
 [tool.hatch.build.hooks.version]
 path = "nebari_jupyter_ai/_version.py"
 

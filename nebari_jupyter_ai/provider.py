@@ -1,7 +1,8 @@
 from functools import wraps
 
 from jupyter_ai_magics.partner_providers.openai import ChatOpenAIProvider, OpenAIEmbeddingsProvider
-from jupyter_ai_magics.models.persona import Persona
+
+from nebari_jupyter_ai.persona import NEBARI_ASSISTANT_PERSONA
 
 NEBARI_CHAT_SYSTEM_PROMPT = """
 You are Nebari Assistant, a conversational assistant living in Nebari to help users.
@@ -61,13 +62,12 @@ def with_nebari_prompt(original_method):
             
     return wrapper
 
-NEBARI_ASSISTANT_AVATAR_ROUTE = "nebari-jupyter-ai/static/nebari-logo-with-bg.svg"
 
 class NebariChatProvider(ChatOpenAIProvider):
     id = "nebari"
     name = "Nebari"
     
-    persona = Persona(name="Nebari Assistant", avatar_route=NEBARI_ASSISTANT_AVATAR_ROUTE)
+    persona = NEBARI_ASSISTANT_PERSONA
 
     @with_nebari_prompt
     def get_chat_prompt_template(self):
